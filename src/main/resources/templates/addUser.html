@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .error {
+        color: red;
+    }
+    </style>
+</head>
+<body>
+<section >
+
+    <h2>Registration</h2>
+
+
+    <h3 >Registration </h3>
+    <form method="post"  th:action="@{/add}"  th:object="${appUser}">
+        <div>
+            <input type="text" th:field="*{fullName}"  placeholder="Login" >
+
+            <p th:if="${#fields.hasErrors('fullName')}" th:errorclass="error" th:errors="*{'fullName'}" />
+
+        </div>
+
+        <div>
+
+            <input type="text" th:field="*{email}" placeholder="Email" >
+
+            <p th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{'email'}" />
+
+        </div>
+
+                <div>
+                    <input type="text" th:field="*{age}" placeholder="age" >
+
+                    <p th:if="${#fields.hasErrors('age')}" th:errorclass="error" th:errors="*{'age'}" />
+
+                </div>
+
+
+
+
+                <input type="text" th:field="*{country}" name="country" placeholder="country" >
+
+                <input type="text" th:field="*{phoneNumber}" name="phoneNumber" placeholder="Phone Number" >
+
+
+
+
+
+
+
+                <button type="submit" value="Register" >Sign In</button>
+
+
+
+    </form>
+
+
+
+</section>
+
+</body>
+</html>
